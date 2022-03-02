@@ -35,7 +35,7 @@ const NavComponent = (props) => {
                         <div className='fonts1 links' onClick={() => navigate('/play')}> BUY TICKET </div>
                         <div className="metamaskButtonContainer links" >
                               <img className="metamaskImage" src={metamaskLogo} alt="" />
-                              {connected? <div className="fonts4">Wallet connected</div> : <div className="fonts3" >Connect to Metamask</div>}
+                              {connected? <div className="fonts4">Wallet connected</div> : <div className="fonts4" >Connect to Metamask</div>}
                         </div>
                   </div>
             </div>
