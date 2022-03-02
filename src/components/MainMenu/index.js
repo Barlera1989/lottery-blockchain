@@ -15,16 +15,17 @@ import web3 from './web3.png'
 const CenterContainer = (props) => {
 
       return (
-            <div className="mainCenterContainer slowAppear">
-                  <div className="centerInColumns">
-                        <div className="fonts1"> WELCOME TO THE LOTTERY GAME! </div>
+            <div className="mainCenterContainer ">
+                  <div className="centerInColumns slowAppear">
+                        <div className="fonts2"> WELCOME TO THE LOTTERY GAME! </div>
+                        <div>&nbsp;</div>
                         <div className="fonts1"> THIS IS A GAME WITH EDUCATIONAL PURPOSES </div>
                         <div className="fonts1"> THE CONTRACT IS DEPLOYED AND VERIFIED IN THE EHTEREUM RINKEBY NETWORK </div>
-                        <div className="fonts1"> YOU CAN ACCESS THE CONTRACT HERE </div>
+                        <div className="fonts1"> YOU CAN ACCESS THE CONTRACT &nbsp;<a href="https://rinkeby.etherscan.io/address/0x55d10A1932EF0C9C3268b9ce96150b2b4859F7EC"> HERE</a> </div>
                         <div className="fonts1"> &nbsp; </div>
                         <div className="fonts1"> CONTRACT AND TESTS MADE WITH REMIX, INFURA ,HARDHAT AND NODE.JS </div>
                         <div className="fonts1"> FRONT-END INTERFACE CONNECTION WAS MADE WITH REACT AND WEB3 </div>
-
+                        </div>
                         <div className="imagesContainer">
                               <img className="imgs" src={chai} alt="" />
                               <img className="imgs" src={ethereum} alt="" />
@@ -35,7 +36,7 @@ const CenterContainer = (props) => {
                               <img className="imgs" src={remix} alt="" />
                               <img className="imgs" src={solidity} alt="" />
                               <img className="imgs" src={web3} alt="" />                          
-                        </div>
+                       
                   
                   </div>
              

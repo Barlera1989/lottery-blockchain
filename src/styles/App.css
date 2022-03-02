@@ -8,8 +8,8 @@
 
 .fonts1 {
       color: white;
-      font-size: 20px;
-      line-height: 40px;
+      font-size: 18px;
+      line-height: 35px;
       margin: 5px;
       display: flex;
       align-items: center;
@@ -27,6 +27,19 @@
       font-size: 20px;
       line-height: 25px;
 }
+
+.infoTableTitle {
+      font-family: arial;
+      color: black;
+      font-size: 20px;
+}
+
+.infoTableTexts {
+      font-family: arial;
+      color: black;
+      font-size: 16px;
+}
+
 
 .hoverable:hover {
       cursor: pointer
@@ -52,6 +65,13 @@
       justify-content:center
 }
 
+.textsContainer {
+      display:flex; 
+      flex-direction: row;
+      justify-content:center
+}
+
+
 
 .flexRow {
       display:'flex'; 
@@ -67,12 +87,6 @@
       color: #DDDDDD;
       background-color: #350060;
 }
-
-/* .slowAppear {
-      transition-duration: 1s;
-      transform: scale(1,0.5);
-      background-color: red;
-} */
 
 .cardContainer {
       display: flex;
@@ -113,6 +127,16 @@ animation: blink 1.5s infinite;
   to {opacity: 0.2}
 }
 
+
+.slowAppear {
+      animation: appear 1.0s;
+} 
+
+@keyframes appear {
+      from {transform: scale(0.0)}
+      to {transform: scale(1.0)}
+}
+
 .metamaskButtonContainer{
       display: flex;
       flex-direction: row;
@@ -131,10 +155,10 @@ animation: blink 1.5s infinite;
 }
 
 .imagesContainer{
-    width: 70%;
-    height: 100px;
+    width: 65%;
+    height: 110px;
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     left:20%;
     background-color: #afa8ee;
     border: 5px solid #292929;
@@ -145,7 +169,7 @@ animation: blink 1.5s infinite;
 
 
 .imgs {
-      width: 8%;
-      height: 80%;
-      margin: 8px;
+      width: 9%;
+      height: 85%;
+      margin: 10px;
   }

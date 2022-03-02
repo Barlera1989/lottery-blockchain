@@ -5,7 +5,7 @@ const Gameplay = (props) => {
  
       return (
             <div className="mainCenterContainer">
-                  <div className="centerInColumns">
+                  <div className="centerInColumns slowAppear">
                         <div className="fonts2"> RULES:</div>
                         <div>&nbsp;</div>
                         <div className="fonts1"> EVERYONE CAN CREATE A LOTTERY GAME</div>

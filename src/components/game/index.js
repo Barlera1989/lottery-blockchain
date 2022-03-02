@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 import lottery from "../../contracts/lottery";
 import web3 from '../../web3'
 import "../../styles/App.css"
+import "../../styles/loader.css"
 
 const Game = (props) => {
       const [lotteryState, setLotteryState] = useState({ maxPlayers: "", usedTickets: [], yourTicket: "" ,message: ""  })
       const [cardsState, setCardsState] = useState('')
       const [loaded, setLoaded] = useState(false)
-      const [updatePage,setUpdatePage] = useState(false)
+      //const [updatePage,setUpdatePage] = useState(false)
 
       const getData = async () =>  {
-
             try {
                   let accounts, isOpen, maxPlayers, usedTickets;
                   let yourTicket = "N/A"
@@ -36,7 +36,7 @@ const Game = (props) => {
             try {
                         const accounts = await web3.eth.getAccounts();
                         if (accounts.length >0) {
-                              const buyATicket = await lottery.methods.enter(ticket).send({
+                              await lottery.methods.enter(ticket).send({
                                     from: accounts[0], value: web3.utils.toWei("0.01", "ether")
                               });
                         }
@@ -46,8 +46,16 @@ const Game = (props) => {
             }
       }    
 
-      const renderCards = (maxPlayers,usedTickets) => {
+      const renderCards = async (maxPlayers,usedTickets) => {
             const cards = []
+            try {
+                  const isOpen = await lottery.methods.isOpen().call();
+                  if (!isOpen) {
+                        cards.push(<div className="fonts2">GAME IS CLOSED!</div> ) 
+                  }   
+            } catch(err) {
+            console.error(err)
+            }
 
             for (let i=1; i <= maxPlayers ; i++){
                   if ((usedTickets.filter((ticket) => Number(ticket) === i)).length !== 0){
@@ -58,14 +66,14 @@ const Game = (props) => {
                   
             }
             setCardsState(cards)
+            setLoaded(true)
       }
 
       
       useEffect(()=> {
             renderCards()
             getData()
-           
-      },[updatePage])
+      },[])
 
 
       return (
@@ -74,11 +82,11 @@ const Game = (props) => {
                         <div className="fonts2"> Buy your ticket! Only 0.01 ETH (Plus gas)</div>
                         <div>&nbsp; </div>
                         <div className="fonts1"> Available tickets:</div>
-                        <div className="cardContainer">
-                             {cardsState}
+                        {loaded? 
+                        <div className="cardContainer">{cardsState} </div> : 
+                        <div className="cardContainer"><div id="preloader"> <div id="loader"/> </div></div> }
+                        <div className="fonts2">Your ticket: <span style={{color: "green"}}>{lotteryState.yourTicket === 0 ? "N/A":lotteryState.yourTicket  }</span></div>
                         </div>
-                        <div className="fonts2">Your ticket: <span style={{color: "green"}}>{lotteryState.yourTicket == 0 ? "N/A":lotteryState.yourTicket  }</span></div>
-                              </div>
             </div>
       );
 }

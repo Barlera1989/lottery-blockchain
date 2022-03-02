@@ -1,5 +1,4 @@
 import React, {useState , useEffect} from "react";
-import { useNavigate } from "react-router-dom";
 import "../../styles/App.css"
 import "../../styles/startGame.css"
 import web3 from '../../web3'
@@ -103,9 +102,8 @@ const Start = (props) => {
                         <span className='startTableTexts'> Info: {lotteryState.message}</span>
 
                         </div>
-                        
+                  
                   </div>
-                 {/*  <div className="fonts1"> Status: {lotteryState.message}</div> */}
              
             </div>
       );

@@ -9,7 +9,6 @@ const InfoTable = (props) => {
       const [lotteryState, setLotteryState] = useState({games: 0,total_prizes:0, tickets:[],  winnings:false , onGoing:"CLOSED",  color:"red"})
 
       const getContractData = async () => {
-            const accounts = await web3.eth.getAccounts();
             let isOpen, games, total_prizes, tickets, winnings
 
             try {
@@ -51,8 +50,8 @@ const InfoTable = (props) => {
             >
                   <div className="infoTableTitle">Statistics:</div>
                   <div>&nbsp; </div>
-                  <div className="infoTableTexts">GAMES PLAYED: {lotteryState.games} </div>
-                  <div className="infoTableTexts">TOTAL PRIZES: {lotteryState.total_prizes / 10**18} </div>
+                  <div className="infoTableTexts">GAMES PLAYED: <br/> {lotteryState.games} </div>
+                  <div className="infoTableTexts">TOTAL PRIZES: <br/>{lotteryState.total_prizes / 10**18} ETH </div>
                   <div>&nbsp; </div>
                   <div className="infoTableTitle">Current Game:</div>
                   <div>&nbsp; </div>
