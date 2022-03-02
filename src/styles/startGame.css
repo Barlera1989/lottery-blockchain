@@ -1,0 +1,54 @@
+.startGameContainer{
+    width: 25%;
+    height: auto;
+    position: absolute;
+    bottom: 5%;
+    left:38%;
+    background-color: #afa8ee;
+    border: 5px solid #292929;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.inputArea{
+    width: 30px;
+    height: 30px;
+}
+
+.inputContainer {
+    display:flex; 
+    flex-direction: row;
+    justify-content:center;
+    align-items: center
+}
+
+.formContainer {
+    display:flex; 
+    flex-direction: column;
+    justify-content:center;
+    align-items: center
+}
+
+.startTableTitle {
+    font-family: arial;
+    color: black;
+    font-size: 25px;
+}
+
+.startTableTexts {
+    font-family: arial;
+    color: black;
+    font-size: 20px;
+}
+
+.startTableStatusText {
+    font-family: arial;
+    color: white;
+    font-size: 40px;
+}
+
+.startTableStatus {
+    position: absolute;
+    top: 15%;
+    left:20%;
+}
