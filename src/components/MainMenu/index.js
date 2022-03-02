@@ -36,8 +36,6 @@ const CenterContainer = (props) => {
                               <img className="imgs" src={remix} alt="" />
                               <img className="imgs" src={solidity} alt="" />
                               <img className="imgs" src={web3} alt="" />                          
-                       
-                  
                   </div>
              
             </div>
