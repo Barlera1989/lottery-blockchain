@@ -9,7 +9,7 @@
 .fonts1 {
       color: white;
       font-size: 18px;
-      line-height: 35px;
+      line-height: 30px;
       margin: 5px;
       display: flex;
       align-items: center;
@@ -19,7 +19,7 @@
 .fonts2 {
       color: white;
       font-size: 30px;
-      line-height: 40px;
+      line-height: 35px;
 }
 
 .fonts3 {
