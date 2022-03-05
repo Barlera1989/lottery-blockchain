@@ -6,34 +6,6 @@
   height: 100vh;
 }
 
-.fonts1 {
-  color: white;
-  font-size: 18px;
-  line-height: 30px;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fonts2 {
-  color: white;
-  font-size: 30px;
-  line-height: 35px;
-}
-
-.fonts3 {
-  color: black;
-  font-size: 20px;
-  line-height: 25px;
-}
-
-.fonts4 {
-  color: black;
-  font-size: 15px;
-  line-height: 20px;
-}
-
 .infoTableTitle {
   font-family: arial;
   color: black;
@@ -97,7 +69,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 300px;
+  height: 400px;
   width: 600px;
 }
 
@@ -112,8 +84,8 @@
 }
 
 .card {
-  height: 80px;
-  width: 50px;
+  height: 70px;
+  width: 45px;
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -164,11 +136,12 @@
 }
 
 .imagesContainer {
-  width: 65%;
-  height: 90px;
+  width: 600px;
+  height: auto;
   position: absolute;
-  bottom: 10%;
-  left: 20%;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #afa8ee;
   border: 5px solid #292929;
   border-radius: 10px;
@@ -176,7 +149,7 @@
 }
 
 .imgs {
-  width: 8%;
-  height: 80%;
-  margin: 8px;
+  width: 50px;
+  height: 45px;
+  margin: 5px;
 }

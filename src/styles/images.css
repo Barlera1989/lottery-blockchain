@@ -1,0 +1,40 @@
+.lotteryImage {
+  height: 50px;
+  width: 100px;
+}
+
+.techImagesContainer {
+  width: 600px;
+  height: auto;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #afa8ee;
+  border: 5px solid #292929;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+.techImages {
+  width: 50px;
+  height: 45px;
+  margin: 5px;
+}
+
+.metamaskImage {
+  height: 35px;
+  width: 35px;
+}
+
+.metamaskImageContainer {
+  display: flex;
+  flex-direction: row;
+  width: 125px !important;
+  height: 45px;
+  background-color: #cfc8ff;
+  border: 5px solid #292929;
+  border-radius: 10px;
+  position: absolute;
+  right: 8%;
+}
