@@ -54,6 +54,7 @@ const Game = (props) => {
           value: web3.utils.toWei("0.01", "ether"),
         });
       }
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
