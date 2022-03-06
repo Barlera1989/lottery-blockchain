@@ -14,12 +14,45 @@ const InfoTable = (props) => {
     winnings: false,
     onGoing: "LOADING",
     color: "black",
+    lastWinner: "test",
+    awardedTicket: "test",
   });
 
+  const getLastEvent = async () => {
+    let obj = {};
+    await lottery.getPastEvents(
+      "Winner",
+      {
+        fromBlock: 0,
+        toBlock: "latest",
+      },
+      function (error, events) {
+        obj["lastWinner"] = events[events.length - 1].returnValues.winner;
+        obj["awardedTicket"] =
+          events[events.length - 1].returnValues.ticketNumber;
+        /*  setLotteryState({
+          ...lotteryState,
+          lastWinner: events[events.length - 1].returnValues.winner,
+          awardedTicket: events[events.length - 1].returnValues.ticketNumber,
+        }); */
+      }
+    );
+    return obj;
+  };
+
   const getContractData = async () => {
-    let isOpen, games, total_prizes, tickets, winnings;
+    let isOpen,
+      games,
+      total_prizes,
+      tickets,
+      winnings,
+      lastWinner,
+      awardedTicket;
 
     try {
+      let events = await getLastEvent();
+      lastWinner = events.lastWinner;
+      awardedTicket = events.awardedTicket;
       isOpen = await lottery.methods.isOpen().call();
       games = await lottery.methods.numberOfGames().call();
       total_prizes = await lottery.methods.totalAwards().call();
@@ -34,6 +67,8 @@ const InfoTable = (props) => {
           winnings,
           onGoing: "OPEN",
           color: "green",
+          lastWinner,
+          awardedTicket,
         });
         setLoading(false);
       } else {
@@ -43,6 +78,8 @@ const InfoTable = (props) => {
           total_prizes,
           onGoing: "CLOSED",
           color: "red",
+          lastWinner,
+          awardedTicket,
         });
         setLoading(false);
       }
@@ -51,7 +88,13 @@ const InfoTable = (props) => {
     }
   };
 
+  const getStringAddress = (address) => {
+    let str;
+    return address.slice(0, 2) + "(...)" + address.slice(36, 42);
+  };
+
   useEffect(() => {
+    getLastEvent();
     getContractData();
   }, []);
 
@@ -69,6 +112,14 @@ const InfoTable = (props) => {
           <div className="infoTableTexts">
             TOTAL PRIZES: <br />
             {lotteryState.total_prizes / 10 ** 18} ETH{" "}
+          </div>
+          <div className="infoTableTexts">
+            LAST WINNER: <br />
+            {getStringAddress(lotteryState.lastWinner)}
+          </div>
+          <div className="infoTableTexts">
+            AWARDED TICKET: <br />
+            {lotteryState.awardedTicket}
           </div>
           <div>&nbsp; </div>
           <div className="infoTableTitle">Current Game:</div>
