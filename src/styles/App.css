@@ -69,7 +69,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 400px;
+  height: 300px;
   width: 600px;
 }
 
@@ -86,7 +86,7 @@
 .card {
   height: 70px;
   width: 45px;
-  margin: 20px;
+  margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
