@@ -1,9 +1,10 @@
 .startGameContainer {
-  width: 25%;
+  width: 20%;
   height: auto;
   position: absolute;
-  bottom: 5%;
-  left: 38%;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #afa8ee;
   border: 5px solid #292929;
   border-radius: 10px;
@@ -32,4 +33,10 @@
 .startTableStatus {
   position: absolute;
   top: 15%;
+}
+
+.startInstructionsPosition {
+  position: absolute;
+  top: 25%;
+  text-align: left;
 }

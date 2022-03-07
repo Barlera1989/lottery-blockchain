@@ -8,18 +8,20 @@ import "../../styles/texts.css";
 
 const Start = (props) => {
   const [lotteryState, setLotteryState] = useState({
-    message: "Loading...",
+    message: "",
     maxPlayers: 0,
     managerFunctions: true,
   });
 
   const messageEvents = {
+    initialMessage: "No game is running. You can start one!",
     beforeOpen: "Generating new lottery.",
     open: "You are the manager! You can end the game anytime.",
     beforeClose: "Finishing game!",
     closed: "Game over! A new game can be started",
     notManager: "You aren't the manager! Nothing to do here.",
     error: "Something is wrong. Try again ",
+    canceled: "Operation canceled!",
   };
 
   const endGame = async () => {
@@ -32,7 +34,7 @@ const Start = (props) => {
         window.location.reload();
       } catch (err) {
         console.error(err);
-        setLotteryState({ ...lotteryState, message: messageEvents.error });
+        setLotteryState({ ...lotteryState, message: messageEvents.canceled });
       }
     }
   };
@@ -50,7 +52,7 @@ const Start = (props) => {
         window.location.reload();
       } catch (err) {
         console.error(err);
-        setLotteryState({ ...lotteryState, message: messageEvents.error });
+        setLotteryState({ ...lotteryState, message: messageEvents.canceled });
       }
     }
   };
@@ -71,6 +73,11 @@ const Start = (props) => {
             managerFunctions: false,
           });
         }
+      } else {
+        setLotteryState({
+          ...lotteryState,
+          message: messageEvents.initialMessage,
+        });
       }
     } catch (err) {
       console.error(err);
@@ -88,14 +95,28 @@ const Start = (props) => {
           {" "}
           START A GAME: ONLY ONE ROUND AT TIME ALLOWED.
         </div>
+        <div className="whiteTexts startInstructionsPosition">
+          INSTRUCTIONS:
+          <br /> <br />1 - IF NO GAME IS RUNNING, ANYONE CAN START A GAME <br />
+          2 - TO START A GAME, JUST ENTER MAX PLAYERS NUMBERS AND ENTER START
+          GAME.
+          <br />
+          3 - ONCE GAME HAS STARTED, PLAYERS CAN BUY TICKETS IN THE BUY TICKETS
+          SECTION.
+          <br />
+          4 - THE MANAGER CAN END THE GAME HOWEVER HE WANTS, EVEN IF PLAYERS
+          JUST DID'T BUY TICKETS
+          <br />
+          {"(REMEMBER THAT TRANSACTIONS COSTS MONEY/ GAS)"}
+          <br />5 - ONCE A GAME IS FINISHED, ANOTHER GAME CAN BE STARTED.
+        </div>
 
         <div className="startGameContainer">
-          <div className="startTableTitle"> Options:</div>
-          <div>&nbsp;</div>
-          <div className="startTableTitle"> Start a Game</div>
+          <div className="blackTitle"> Start a Game</div>
+          <div>&nbsp; </div>
           <form className="formContainer" onSubmit={onSubmitEvent}>
             <div className="inputContainer">
-              <div className="startTableTexts"> Select max players:</div>
+              <div className="blackTexts"> Select max players:</div>
               <input
                 className="inputArea"
                 value={lotteryState.maxPlayers}
@@ -111,13 +132,13 @@ const Start = (props) => {
           </form>
           <div>&nbsp;</div>
 
-          <div className="startTableTitle"> End Game</div>
+          <div className="blackTitle"> End Game</div>
           <button className="button" onClick={() => endGame()}>
             {" "}
             END GAME
           </button>
           <div>&nbsp;</div>
-          <span className="startTableTexts"> Info: {lotteryState.message}</span>
+          <span className="blackTexts"> Info: {lotteryState.message}</span>
         </div>
       </div>
     </div>
