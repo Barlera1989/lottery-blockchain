@@ -46,7 +46,7 @@ const NavComponent = (props) => {
           {" "}
           BUY TICKET{" "}
         </div>
-        <div className="metamaskImageContainer links">
+        <div className="metamaskImageContainer">
           <img className="metamaskImage" src={metamaskLogo} alt="" />
           {connected ? (
             <div className="metamaskContainerText">Wallet connected</div>
